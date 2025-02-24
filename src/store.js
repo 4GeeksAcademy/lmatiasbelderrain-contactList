@@ -50,6 +50,7 @@ export const obtenerContactos = async (dispatch) => {
       type: "load_contacts",
       playload: data.contacts
     })
+
   } catch (error) {
     console.log(error)
   }
@@ -59,6 +60,29 @@ export const crearAgenda = async () => {
     const response = await fetch("https://playground.4geeks.com/contact/agendas/mati_b", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' }
+    })
+    console.log(response)
+  } catch (error) {
+    console.log(error)
+  }
+}
+export const crearContacto = async (dispatch, newContact) => {
+  try {
+    const response = await fetch("https://playground.4geeks.com/contact/agendas/mati_b/contacts", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newContact)
+    })
+    console.log(response)
+  } catch (error) {
+    console.log(error)
+  }
+}
+export const borrarContacto = async (dispatch, id) => {
+  try {
+    const response = await fetch("https://playground.4geeks.com/contact/agendas/mati_b/contacts/" + id, {
+      method: "DELETE",
+      headers: { 'Content-Type': 'application/json' },
     })
     console.log(response)
   } catch (error) {

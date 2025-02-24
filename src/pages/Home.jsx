@@ -10,6 +10,7 @@ export const Home = () => {
 	useEffect(() => {
 		obtenerContactos(dispatch)
 	}, [])
+	
 	console.log(store.contacts)
 	return (
 		<div className="text-center mt-5">
