@@ -73,7 +73,6 @@ export const crearContacto = async (dispatch, newContact) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newContact)
     })
-    console.log(response)
   } catch (error) {
     console.log(error)
   }
@@ -84,7 +83,20 @@ export const borrarContacto = async (dispatch, id) => {
       method: "DELETE",
       headers: { 'Content-Type': 'application/json' },
     })
-    console.log(response)
+
+    obtenerContactos(dispatch)
+  } catch (error) {
+    console.log(error)
+  }
+}
+export const editarContacto = async (dispatch, newContact, id) => {
+  try {
+    const response = await fetch("https://playground.4geeks.com/contact/agendas/mati_b/contacts/" + id, {
+      method: "PUT",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newContact)
+    })
+    obtenerContactos(dispatch)
   } catch (error) {
     console.log(error)
   }
